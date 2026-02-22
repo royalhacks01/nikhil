@@ -3,113 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Jangid - SEO Specialist CV</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Nikhil Jangid | SEO Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #1a1a1a;
+            --surface: #262626;
+            --accent: #ffb800; /* Electric Amber */
+            --text-main: #f5f5f5;
+            --text-dim: #a0a0a0;
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --transition: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 40px 40px; /* Subtle grain/grid texture */
+        }
+
+        /* Layout Structure */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            min-height: 100vh;
+        }
+
+        /* Left Column: Visual & Info */
+        .sidebar {
+            background: var(--surface);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .profile-frame {
+            position: relative;
+            width: fit-content;
+            animation: reveal 1s var(--transition);
+        }
+
+        .profile-frame::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid var(--accent);
+            z-index: -1;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(110%);
+            transition: filter 0.5s ease;
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Main Content */
+        main {
+            padding: 6rem;
+            animation: fadeIn 1.5s var(--transition);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 8vw, 10rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            letter-spacing: -2px;
+        }
+
+        .role-tag {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            display: block;
+            border-bottom: 4px solid var(--text-main);
+            width: fit-content;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            max-width: 800px;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .exp-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .exp-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-pill {
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info strong {
+            color: var(--accent);
+            text-transform: uppercase;
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes reveal {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 1024px) {
+            .container { grid-template-columns: 1fr; }
+            .sidebar { position: relative; height: auto; padding: 2rem; }
+            main { padding: 3rem 2rem; }
+            .hero-title { font-size: 4rem; }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-normal">
+<body>
 
-    <div class="max-w-4xl mx-auto my-10 bg-white shadow-2xl rounded-lg overflow-hidden">
-        
-        <header class="bg-slate-900 text-white p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-slate-700 overflow-hidden bg-gray-300">
-                <img src="https://via.placeholder.com/150" alt="Nikhil Jangid" class="w-full h-full object-cover">
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-frame">
+                <img src="/../nikhil.jpg" alt="Nikhil Jangid" class="profile-img">
             </div>
-            <div class="text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Nikhil Jangid</h1>
-                <p class="text-xl text-slate-400 mt-2 font-medium">SEO Specialist</p>
-                <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-4 text-sm">
-                    <span class="flex items-center gap-2"><i class="fas fa-phone"></i> +91 9461882446</span>
-                    <span class="flex items-center gap-2"><i class="fas fa-envelope"></i> nikhiljangid883@gmail.com</span>
-                    <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan</span>
-                </div>
-            </div>
-        </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3">
-            
-            <aside class="bg-slate-50 p-8 border-r border-gray-200">
-                <section class="mb-10">
-                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider mb-4 border-b-2 border-slate-200 pb-1">Skills</h2>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-600 text-xs"></i> On-Page SEO</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-600 text-xs"></i> Off-Page SEO Specialist</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-600 text-xs"></i> SMO (Social Media Optimization)</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-600 text-xs"></i> SEO Planning & Implementation</li>
+            <div class="contact-info">
+                <h2>Contact</h2> <p><strong>Phone</strong> +91 9461882446</p> <p><strong>Email</strong> nikhiljangid883@gmail.com</p> <p><strong>Address</strong> 15 Phool Colony Sanganer, Jaipur</p> <p><strong>Education</strong> Bachelor's in Arts: 2021-Present <br>Suresh Gyan Vihar University</p> </div>
+        </aside>
+
+        <main>
+            <header>
+                <h1 class="hero-title">Nikhil<br>Jangid</h1> <span class="role-tag">SEO Specialist</span> </header>
+
+            <section id="about">
+                <h2>About Me</h2> <p>Experienced as an SEO Specialist for one year. Successfully increased customer traffic and enhanced overall marketing strategy through data-driven planning and implementation of relevant SEO tools. [cite: 4, 5]</p>
+            </section>
+
+            <section id="experience">
+                <h2>Experience</h2> <div class="exp-item">
+                    <span class="exp-date">Present</span>
+                    <h3>Senior SEO Executive</h3> <p>Apex Web Cube Company</p> <ul>
+                        <li>Handled multiple company projects. [cite: 9]</li>
+                        <li>Increased organic traffic across multiple project websites. [cite: 10]</li>
                     </ul>
-                </section>
+                </div>
 
-                <section class="mb-10">
-                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider mb-4 border-b-2 border-slate-200 pb-1">Languages</h2>
-                    <div class="space-y-2 text-gray-700">
-                        <p class="flex justify-between"><span>English</span> <span class="text-slate-400">Professional</span></p>
-                        <p class="flex justify-between"><span>Hindi</span> <span class="text-slate-400">Native</span></p>
-                    </div>
-                </section>
+                <div class="exp-item">
+                    <span class="exp-date">2023</span>
+                    <h3>SEO Executive</h3> <p>Tistabene Pvt. Company</p> <ul>
+                        <li>Served as the primary SEO specialist for the company. [cite: 13]</li>
+                        <li>Drove significant traffic growth for tistabene.com. [cite: 13]</li>
+                    </ul>
+                </div>
+            </section>
 
-                <section>
-                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider mb-4 border-b-2 border-slate-200 pb-1">Contact</h2>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        15 Phool Colony Sanganer,<br>
-                        Tonk Road, Jaipur
-                    </p>
-                </section>
-            </aside>
+            <section id="skills">
+                <h2>Skills</h2> <div class="skills-grid">
+                    <div class="skill-pill">On-Page SEO</div> <div class="skill-pill">Off-Page SEO</div> <div class="skill-pill">SMO</div> <div class="skill-pill">Marketing Strategy</div> </div>
+            </section>
 
-            <main class="col-span-2 p-8 md:p-12">
-                
-                <section class="mb-12">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                        <i class="fas fa-user text-slate-400"></i> About Me
-                    </h2>
-                    <p class="text-gray-600 leading-relaxed">
-                        Experienced SEO Specialist with a successful track record in increasing website traffic and enhancing marketing strategies[cite: 4]. 
-                        Highly proficient in using industry-relevant SEO tools for the perfect implementation of strategic planning to deliver optimal results[cite: 5].
-                    </p>
-                </section>
-
-                <section class="mb-12">
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <i class="fas fa-briefcase text-slate-400"></i> Experience
-                    </h2>
-
-                    <div class="mb-10 relative pl-6 border-l-2 border-slate-200">
-                        <div class="absolute w-4 h-4 bg-slate-900 rounded-full -left-[9px] top-1"></div>
-                        <h3 class="text-xl font-bold text-slate-800">Senior SEO Executive</h3>
-                        <p class="text-slate-600 font-medium italic">Apex web cube Company | Present</p>
-                        <ul class="mt-3 list-disc list-outside ml-4 text-gray-600 space-y-2">
-                            <li>Managed multiple complex projects simultaneously for the company[cite: 9].</li>
-                            <li>Successfully increased organic visitor traffic to multiple project websites through strategic optimization[cite: 10].</li>
-                        </ul>
-                    </div>
-
-                    <div class="relative pl-6 border-l-2 border-slate-200">
-                        <div class="absolute w-4 h-4 bg-slate-400 rounded-full -left-[9px] top-1"></div>
-                        <h3 class="text-xl font-bold text-slate-800">SEO Executive</h3>
-                        <p class="text-slate-600 font-medium italic">Tistabene Pvt. Company | 2023</p>
-                        <ul class="mt-3 list-disc list-outside ml-4 text-gray-600 space-y-2">
-                            <li>Appointed as the primary SEO specialist responsible for the company’s digital growth[cite: 13].</li>
-                            <li>Drove significant traffic increases to the tistabene.com website[cite: 13].</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                        <i class="fas fa-graduation-cap text-slate-400"></i> Education
-                    </h2>
-                    <div class="bg-slate-50 p-6 rounded-lg border border-slate-100">
-                        <h3 class="text-lg font-bold text-slate-800">Bachelor's in Arts</h3>
-                        <p class="text-slate-600">Suresh Gyan Vihar University, Jaipur [cite: 19]</p>
-                        <p class="text-sm text-slate-500 mt-1 italic">2021 – In Progress </p>
-                    </div>
-                </section>
-            </main>
-        </div>
-
-        <footer class="bg-slate-900 text-slate-500 text-center py-6 text-sm border-t border-slate-800">
-            &copy; 2026 Nikhil Jangid. All rights reserved.
-        </footer>
+            <section id="languages">
+                <h2>Languages</h2> <p>English & Hindi</p> </section>
+        </main>
     </div>
 
 </body>
